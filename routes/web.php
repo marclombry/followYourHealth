@@ -18,7 +18,8 @@ Route::get('/test',function () {
 
     $users = App\User::first();
     $profile = $users->profiles;
-    dd($profile->cp);
+    $disease = $users->diseases;
+    dd($disease);
 
 });
 Auth::routes();
