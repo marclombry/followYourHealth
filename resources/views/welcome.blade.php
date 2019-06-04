@@ -65,6 +65,8 @@
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                background-color: black;
+                padding:6px;
             }
 
             .m-b-md {
@@ -94,8 +96,12 @@
                 </div>
 
                 <div class="links">
-                    <a href="#">Trouvez un spécialiste</a>
-                    <a href="#">Conseil</a>
+                    @if(Auth::check())
+                    <a href="#">Dernières maladies</a>
+                    <a href="#">Maladie fréquentes</a>
+                    <a href="#">traitement le plus souvent préscrit</a>
+                    <a href="#">Maladie fréquentes</a>
+                    @endif
                 </div>
             </div>
         </div>

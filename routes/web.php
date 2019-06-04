@@ -11,17 +11,18 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/test',function () {
 
-    $users = App\User::first();
-    $profile = $users->profiles;
-    $disease = $users->diseases;
-    dd($disease);
-
-});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'disease', 'middleware' => 'auth'], function () {
+    Route::get('/', 'DiseaseController@index')->name("disease");
+    Route::get('/last','DiseaseController@last');
+    Route::get('/first','DiseaseController@first');
+});
+
