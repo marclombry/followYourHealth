@@ -21,7 +21,7 @@ class CreateDiseasesTable extends Migration
             $table->dateTime('datedisease');
             $table->boolean('curable')->default(true);
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('treatment_id');
+            $table->unsignedInteger('treatment_id')->default(1);
             $table->timestamps();
         });
     }

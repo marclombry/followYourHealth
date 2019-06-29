@@ -12,6 +12,11 @@ class Disease extends Model
         return $this->belongsToMany(User::class);
     }
 
+    public function treatment()
+    {
+        return $this->belongsTo(Treatment::class);
+    }
+
     public function lastDisease()
     {
         return Disease::where('user_id', Auth::id())->orderBy('id', 'DESC')->take(1);

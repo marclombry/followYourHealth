@@ -26,3 +26,11 @@ Route::group(['prefix' => 'disease', 'middleware' => 'auth'], function () {
     Route::get('/first','DiseaseController@first');
 });
 
+
+Route::get('/test',function(){
+    $t = App\User::all();
+    $m = $t[0]->diseases()->get();
+    dd($m[0]->name);
+});
+
+
